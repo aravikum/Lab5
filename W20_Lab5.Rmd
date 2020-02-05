@@ -126,27 +126,51 @@ Divide the labor with your neighbors and run the normality check on each of the 
 # check normality of each group 
 s1 <- scfa_wide %>%
   filter(supplement_consumed == "Accessible") 
-shapiro.test(s1$butyrate_delta) #p-value = ?
+shapiro.test(s1$butyrate_delta) #p-value = 0.7185
 
 s2 <- scfa_wide %>%
   filter(supplement_consumed == "Arabino") 
-shapiro.test(s2$butyrate_delta) #p-value = ?
+shapiro.test(s2$butyrate_delta) #p-value = 0.07012
 
 s3 <- scfa_wide %>%
   filter(supplement_consumed == "BRMPS+Accessible")
-shapiro.test(s3$butyrate_delta) #p-value = ?
+shapiro.test(s3$butyrate_delta) #p-value = 0.003263
 
 s4 <- scfa_wide %>%
   filter(supplement_consumed == "HiMaize") 
-shapiro.test(s4$butyrate_delta) #p-value = ?
+shapiro.test(s4$butyrate_delta) #p-value = 0.5398
 
 s5 <- scfa_wide %>%
   filter(supplement_consumed == "HiMaize+BRMPS") 
-shapiro.test(s5$butyrate_delta) #p-value = ?
+shapiro.test(s5$butyrate_delta) #p-value = 0.2767
 
 s6 <- scfa_wide %>%
   filter(supplement_consumed == "Inulin") 
-shapiro.test(s6$butyrate_delta) #p-value = ?
+shapiro.test(s6$butyrate_delta) #p-value = 0.8136
+
+s7 <- scfa_wide %>%
+  filter(supplement_consumed == "LOODAT")
+shapiro.test(s7$butyrate_delta) #p-value = 
+
+s8 <- scfa_wide %>%
+  filter(supplement_consumed == "none")
+shapiro.test(s8$butyrate_delta) #p-value = 
+
+s9 <- scfa_wide %>%
+  filter(supplement_consumed == "Psyllium")
+shapiro.test(s9$butyrate_delta) #p-value = 
+
+s10 <- scfa_wide %>%
+  filter(supplement_consumed == "BRMPS")
+shapiro.test(s10$butyrate_delta) #p-value =  
+
+s11 <- scfa_wide %>%
+  filter(supplement_consumed == "transition_HiMaize")
+shapiro.test(s11$butyrate_delta) #p-value =  
+
+s12 <- scfa_wide %>%
+  filter(supplement_consumed == "Psyllium+BRMPS")
+shapiro.test(s12$butyrate_delta) #p-value =  
 ```
 
 ```{r}
@@ -341,6 +365,9 @@ Based on the numbers presented in this table, does the non-signifcant result mak
 
 Remember to save any plots generated to a figures directory, and any new data frames to a curated_data directory.
 ```{r}
+# save final data frame
+write_delim(prop_df, path = "curated_data/proportiondf.txt", delim = "\t")
+# save plot
 
 ```
 
